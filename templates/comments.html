@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../static/css/comments.css">
+</head>
+<body>
+ <h1>Ваши комментарий: </h1>
+ {% for msg in get_flashed_messages() %}
+                             <div class="flash">{{msg}}</div>
+                         {%endfor%}
+{%for el in comments%}
+    <div class="comments_wrap">
+
+        <div class="elem_comments_wrap">
+            <p>Имя:{{el.name}}</p>
+            <p>Дата:{{el.date.date()}}</p>
+            <p>Комментарий:<br>{{el.comment}}</p>
+            <div class="a_wrap">
+            <a href ='/check_my_comments/{{el.id}}' class="btn btn-delete"> Удалить комментарий </a>
+                </div>
+        </div>
+    </div>
+{%endfor%}
+</body>
+</html>
